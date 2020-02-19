@@ -8,8 +8,7 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 import matplotlib.pyplot as plt
 import keras as k 
 
-from google.colab import files 
-uploaded = files.upload()      
+#uploaded = files.upload()      
 df = pd.read_csv("kidney_disease.csv")
     
 
