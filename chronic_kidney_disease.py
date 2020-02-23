@@ -46,7 +46,7 @@ history = model.fit(X_train, y_train, epochs=2000, batch_size=X_train.shape[0])
 
 model.save("ckd.model")
 
-plt.plot(history.history["acc"])
+plt.plot(history.history["accuracy"])
 plt.plot(history.history["loss"])
 plt.title("model accuracy & loss")
 plt.ylabel("accuracy and loss")
@@ -57,6 +57,7 @@ plt.show()
 for model_file in glob.glob("*.model"):
   print("Model file: ", model_file)
   model = load_model(model_file)
+  print(X_test)
   pred = model.predict(X_test)
   pred = [1 if y>=0.5 else 0 for y in pred] #Threshold, transforming probabilities to either 0 or 1 depending if the probability is below or above 0.5
   scores = model.evaluate(X_test, y_test)
